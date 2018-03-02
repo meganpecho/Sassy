@@ -1,0 +1,248 @@
+html, body {
+  min-height: 100%; }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.wrapper {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: repeat(12, [col-start] 1fr); }
+  .wrapper * {
+    grid-column: col-start / span 12; }
+
+@media (min-width: 500px) {
+  .nav, .jumbotron, .footer {
+    grid-column: col-start / span 12; }
+  .aside-2 {
+    grid-column: col-start / span 12; }
+  .content {
+    grid-column: col-start / span 12; } }
+
+@media (min-width: 720px) {
+  .nav, .jumbotron, .footer {
+    grid-column: col-start / span 12; }
+  .aside-1 {
+    grid-column: col-start / span 3; }
+  .aside-2 {
+    grid-column: col-start 10 / span 3; }
+  .content {
+    grid-column: col-start 4 / span 6; } }
+
+.wrapper {
+  background-color: white;
+  height: 100%;
+  font-family: 'helvetica', 'Arial', sans-serif; }
+  .wrapper .nav {
+    background-color: #645082;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    justify-content: space-between; }
+    .wrapper .nav .brandInfo {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-items: center; }
+      .wrapper .nav .brandInfo .name {
+        color: white;
+        padding: 5px 10px;
+        margin: 10px;
+        font-family: fantasy;
+        font-size: 30px; }
+    .wrapper .nav .links {
+      display: none;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      align-items: center; }
+      .wrapper .nav .links ul {
+        list-style: none;
+        display: inline-flex; }
+        .wrapper .nav .links ul li {
+          color: white;
+          padding: 10px 10px;
+          margin: 10px;
+          text-transform: uppercase;
+          font-size: 20px; }
+          .wrapper .nav .links ul li:hover {
+            color: lime;
+            cursor: pointer; }
+          .wrapper .nav .links ul li a {
+            color: white;
+            text-decoration: none; }
+            .wrapper .nav .links ul li a:hover {
+              cursor: pointer;
+              color: lime; }
+    .wrapper .nav .menu-btn {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 20px; }
+      .wrapper .nav .menu-btn .menu-toggle {
+        position: relative;
+        display: block;
+        margin: auto;
+        height: 25px;
+        width: 40px;
+        cursor: pointer; }
+        .wrapper .nav .menu-btn .menu-toggle .bars {
+          display: block;
+          width: 40px;
+          height: 5px;
+          background: #fff;
+          border-radius: 2px;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-top: -2.5px;
+          transition: all .2s linear; }
+          .wrapper .nav .menu-btn .menu-toggle .bars:before, .wrapper .nav .menu-btn .menu-toggle .bars:after {
+            display: block;
+            width: 40px;
+            height: 5px;
+            background: #fff;
+            border-radius: 2px;
+            content: "";
+            position: absolute;
+            transition: .2s linear; }
+          .wrapper .nav .menu-btn .menu-toggle .bars:before {
+            top: -10px; }
+          .wrapper .nav .menu-btn .menu-toggle .bars:after {
+            bottom: -10px; }
+      .wrapper .nav .menu-btn .active .bars {
+        background-color: transparent;
+        transition: all .2s linear; }
+        .wrapper .nav .menu-btn .active .bars:before {
+          top: 0;
+          transform: rotate(45deg); }
+        .wrapper .nav .menu-btn .active .bars:after {
+          bottom: 0;
+          transform: rotate(-45deg); }
+    .wrapper .nav.activeNav {
+      height: 100%;
+      width: 100%;
+      display: inline-block; }
+      .wrapper .nav.activeNav .brandInfo {
+        display: inline-block;
+        float: left; }
+      .wrapper .nav.activeNav .menu-btn {
+        display: inline-block;
+        float: right;
+        padding-top: 22px; }
+      .wrapper .nav.activeNav .links {
+        clear: both;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0px; }
+        .wrapper .nav.activeNav .links ul {
+          list-style: none;
+          display: block; }
+          .wrapper .nav.activeNav .links ul li {
+            color: white;
+            padding: 10px 10px;
+            margin: 10px;
+            text-transform: uppercase;
+            font-size: 20px; }
+            .wrapper .nav.activeNav .links ul li:hover {
+              color: lime;
+              cursor: pointer; }
+  .wrapper .jumbotron {
+    height: 200px;
+    width: 100%;
+    background: #b0ff92 url("/images/giantpangolin.jpg") no-repeat center;
+    background-size: cover;
+    margin-top: 75px; }
+  .wrapper .aside-1 {
+    background-color: white;
+    height: auto;
+    display: none; }
+    .wrapper .aside-1 .sidenav {
+      display: flex;
+      position: fixed;
+      flex-flow: column wrap;
+      padding: 20px 10px 100px 40px; }
+      .wrapper .aside-1 .sidenav ul {
+        list-style: none;
+        padding-right: 30px; }
+        .wrapper .aside-1 .sidenav ul li {
+          line-height: 24px; }
+          .wrapper .aside-1 .sidenav ul li a {
+            color: black;
+            text-decoration: none; }
+            .wrapper .aside-1 .sidenav ul li a:hover {
+              cursor: pointer;
+              color: lime; }
+  .wrapper .content {
+    background-color: white;
+    height: auto;
+    padding: 20px 10px; }
+    .wrapper .content h1 {
+      font-size: 50px; }
+    .wrapper .content h3 {
+      padding-top: 30px;
+      padding-bottom: 20px;
+      font-size: 30px; }
+    .wrapper .content p {
+      padding-bottom: 20px; }
+  .wrapper .aside-2 {
+    background-color: white;
+    height: auto;
+    padding: 20px; }
+    .wrapper .aside-2 .ad {
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      .wrapper .aside-2 .ad img {
+        height: auto;
+        width: 80%; }
+  .wrapper .footer {
+    background-color: #645082;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end; }
+    .wrapper .footer p {
+      color: white;
+      padding: 20px;
+      font-size: 15px; }
+    .wrapper .footer a {
+      color: white; }
+      .wrapper .footer a:hover {
+        color: lime; }
+  .wrapper hr {
+    margin: 50px 0; }
+
+@media (min-width: 540px) {
+  .wrapper .jumbotron {
+    height: 240px; }
+  .wrapper .aside-1 {
+    display: none; } }
+
+@media (min-width: 752px) {
+  .wrapper .nav .links {
+    display: flex; }
+  .wrapper .nav .menu-btn {
+    display: none; }
+  .wrapper .jumbotron {
+    height: 400px; }
+  .wrapper .aside-1 {
+    display: grid; } }
+
+@media (min-width: 1200px) {
+  .wrapper .nav .links {
+    display: flex; }
+  .wrapper .nav .menu-btn {
+    display: none; }
+  .wrapper .jumbotron {
+    height: 500px; }
+  .wrapper .aside-1 {
+    display: grid; } }
